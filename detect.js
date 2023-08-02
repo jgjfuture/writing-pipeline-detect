@@ -1,9 +1,8 @@
 import { notion, databaseId } from "./notion"
-import { DatabaseObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 
-export async function detect(): Promise<DatabaseObjectResponse[]> {
+export async function detect() {
     const response = await notion.databases.query({
-        database_id: databaseId!,
+        database_id: databaseId,
         filter: {
             property: 'Detected',
             checkbox: {
@@ -12,6 +11,6 @@ export async function detect(): Promise<DatabaseObjectResponse[]> {
         }
     });
 
-    const items = response.results as DatabaseObjectResponse[];
+    const items = response.results;
     return items;
 }

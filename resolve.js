@@ -1,6 +1,6 @@
 import { notion } from "./notion"
 
-export async function resolve(id: string): Promise<void> {
+export async function resolve(id) {
     await notion.pages.update({
         page_id: id,
         properties: {
