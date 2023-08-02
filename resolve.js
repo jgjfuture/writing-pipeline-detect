@@ -1,4 +1,4 @@
-import { notion } from "./notion"
+import { notion } from "./notion.js"
 
 export async function resolve(id) {
     await notion.pages.update({

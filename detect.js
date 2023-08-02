@@ -1,4 +1,4 @@
-import { notion, databaseId } from "./notion"
+import { notion, databaseId } from "./notion.js"
 
 export async function detect() {
     const response = await notion.databases.query({
