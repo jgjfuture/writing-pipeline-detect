@@ -14,7 +14,9 @@
     "nodemon": "^3.0.1"
   },
   "dependencies": {
-    "@notionhq/client": "^2.2.9"
+    "@google-cloud/functions-framework": "^3.0.0",
+    "@notionhq/client": "^2.2.9",
+    "@google-cloud/pubsub": ""
   },
   "type": "module"
 }

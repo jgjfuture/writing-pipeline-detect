@@ -1,9 +1,11 @@
+import functions from "@google-cloud/functions-framework";
 import { detect } from "./detect.js";
 import { resolve } from "./resolve.js";
 import { publishMessage, makePublishData } from "./publish.js";
 import { topicName } from "./pubsub.js";
 
-async function main() {
+functions.http('helloHttp', (req, res) => {
+  (async () => {
     const detectedItems = await detect();
     for(const item of detectedItems) {
         const metaId = item.id;
@@ -13,6 +15,6 @@ async function main() {
         publishMessage(topicName, makePublishData(metaId, imageURL));
         await resolve(metaId);
     }
-}
-
-main();
+  })();
+  res.send("OK");
+});
