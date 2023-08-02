@@ -12,7 +12,7 @@ functions.http('helloHttp', (req, res) => {
         const paper = item.properties.paper;
         const imageURL = paper.files[0].file.url;
         console.log("Detected:", metaId);
-        publishMessage(topicName, makePublishData(metaId, imageURL));
+        await publishMessage(topicName, makePublishData(metaId, imageURL));
         await resolve(metaId);
     }
   })();
