@@ -24,5 +24,3 @@ export async function detect() {
     const items = response.results;
     return items;
 }
-
-console.log(await detect())
